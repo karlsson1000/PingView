@@ -1,0 +1,22 @@
+{
+	"schemaVersion": 1,
+	"id": "pingview",
+	"version": "${version}",
+	"name": "${mod_name}",
+	"description": "${mod_description}",
+	"authors": ["${mod_authors}"],
+	"license": "${mod_license}",
+	"icon": "assets/ping-view/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"client": []
+	},
+	"mixins": [
+		"pingview.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.0",
+		"fabric-api": "*",
+		"minecraft": ">=1.21.6"
+	}
+}

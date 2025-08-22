@@ -1,0 +1,50 @@
+plugins {
+    id 'fabric-loom' version "${loom_version}"
+    id 'maven-publish'
+}
+
+base {
+    archivesName = "${project.mod_id}-fabric"
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+    implementation project(":common")
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mod_id", project.mod_id
+    inputs.property "mod_name", project.mod_name
+    inputs.property "mod_description", project.mod_description
+    inputs.property "mod_authors", project.mod_authors
+    inputs.property "mod_license", project.mod_license
+    inputs.property "minecraft_version_range", project.minecraft_version_range
+
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version,
+                "mod_id": project.mod_id,
+                "mod_name": project.mod_name,
+                "mod_description": project.mod_description,
+                "mod_authors": project.mod_authors,
+                "mod_license": project.mod_license,
+                "minecraft_version_range": project.minecraft_version_range
+    }
+}
+
+jar {
+    from project(':common').sourceSets.main.output
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    from("LICENSE") {
+        rename { "${it}_${base.archivesName.get()}" }
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}

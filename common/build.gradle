@@ -1,0 +1,7 @@
+plugins {
+    id 'java-library'
+}
+
+dependencies {
+    compileOnly 'org.spongepowered:mixin:0.8.7'
+}
