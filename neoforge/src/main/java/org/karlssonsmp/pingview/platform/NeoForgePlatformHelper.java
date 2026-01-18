@@ -18,7 +18,7 @@ public class NeoForgePlatformHelper implements PlatformHelper {
         String pingText;
         int color;
 
-        if (ping <= 0) {
+        if (ping < 0) {
             pingText = "N/A";
             color = 0xFF555555;
         } else {
