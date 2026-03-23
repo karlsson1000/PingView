@@ -1,17 +1,17 @@
 package org.karlssonsmp.pingview.platform;
 
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.font.TextRenderer;
-import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.network.PlayerListEntry;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Font;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.client.multiplayer.PlayerInfo;
 
 public class FabricPlatformHelper implements PlatformHelper {
 
     @Override
     public <T, U> void renderPingText(T client, U context, int width, int x, int y, Object entry) {
-        MinecraftClient mc = (MinecraftClient) client;
-        DrawContext drawContext = (DrawContext) context;
-        PlayerListEntry playerEntry = (PlayerListEntry) entry;
+        Minecraft mc = (Minecraft) client;
+        GuiGraphicsExtractor drawContext = (GuiGraphicsExtractor) context;
+        PlayerInfo playerEntry = (PlayerInfo) entry;
 
         int ping = playerEntry.getLatency();
 
@@ -35,10 +35,10 @@ public class FabricPlatformHelper implements PlatformHelper {
             }
         }
 
-        TextRenderer textRenderer = mc.textRenderer;
-        int textWidth = textRenderer.getWidth(pingText);
+        Font textRenderer = mc.font;
+        int textWidth = textRenderer.width(pingText);
         int textX = x + width - textWidth;
 
-        drawContext.drawText(textRenderer, pingText, textX, y, color, true);
+        drawContext.text(textRenderer, pingText, textX, y, color, true);
     }
 }
