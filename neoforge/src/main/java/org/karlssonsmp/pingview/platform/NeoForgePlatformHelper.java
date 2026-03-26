@@ -2,7 +2,7 @@ package org.karlssonsmp.pingview.platform;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.multiplayer.PlayerInfo;
 
 public class NeoForgePlatformHelper implements PlatformHelper {
@@ -10,7 +10,7 @@ public class NeoForgePlatformHelper implements PlatformHelper {
     @Override
     public <T, U> void renderPingText(T client, U context, int width, int x, int y, Object entry) {
         Minecraft mc = (Minecraft) client;
-        GuiGraphics guiGraphics = (GuiGraphics) context;
+        GuiGraphicsExtractor drawContext = (GuiGraphicsExtractor) context;
         PlayerInfo playerInfo = (PlayerInfo) entry;
 
         int ping = playerInfo.getLatency();
@@ -35,10 +35,10 @@ public class NeoForgePlatformHelper implements PlatformHelper {
             }
         }
 
-        Font font = mc.font;
-        int textWidth = font.width(pingText);
+        Font textRenderer = mc.font;
+        int textWidth = textRenderer.width(pingText);
         int textX = x + width - textWidth;
 
-        guiGraphics.drawString(font, pingText, textX, y, color, true);
+        drawContext.text(textRenderer, pingText, textX, y, color, true);
     }
 }
