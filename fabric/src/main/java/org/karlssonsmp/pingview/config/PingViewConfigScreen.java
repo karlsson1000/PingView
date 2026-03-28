@@ -14,7 +14,7 @@ public class PingViewConfigScreen {
 
         ConfigBuilder builder = ConfigBuilder.create()
                 .setParentScreen(parent)
-                .setTitle(Component.literal("PingView Settings"))
+                .setTitle(Component.literal("Ping View Options"))
                 .setSavingRunnable(PingViewConfig::save)
                 .setDoesConfirmSave(false);
 
