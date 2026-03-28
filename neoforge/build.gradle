@@ -7,29 +7,16 @@ base {
     archivesName = "${mod_id}-neoforge"
 }
 
+repositories {
+    maven { url "https://maven.shedaniel.me/" }
+}
+
 neoForge {
     version = project.neo_version
 
     runs {
         client {
             client()
-            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
-        }
-
-        server {
-            server()
-            programArgument '--nogui'
-            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
-        }
-
-        data {
-            clientData()
-            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
-        }
-
-        configureEach {
-            systemProperty 'forge.logging.markers', 'REGISTRIES'
-            logLevel = org.slf4j.event.Level.DEBUG
         }
     }
 
@@ -44,6 +31,8 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
     implementation project(":common")
+    implementation "me.shedaniel.cloth:cloth-config-neoforge:26.1.154"
+    jarJar "me.shedaniel.cloth:cloth-config-neoforge:26.1.154"
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {

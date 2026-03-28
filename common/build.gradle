@@ -4,4 +4,5 @@ plugins {
 
 dependencies {
     compileOnly 'org.spongepowered:mixin:0.8.7'
+    compileOnly 'com.google.code.gson:gson:2.13.2'
 }
