@@ -1,0 +1,12 @@
+{
+  "config.pingview.title": "Ping View Options",
+  "config.pingview.category.options": "Options",
+  "config.pingview.pingColorGood": "Good Ping Color",
+  "config.pingview.pingColorOk": "Ok Ping Color",
+  "config.pingview.pingColorBad": "Bad Ping Color",
+  "config.pingview.pingColorTerrible": "Terrible Ping Color",
+  "config.pingview.pingColorUnknown": "Unknown Ping Color",
+  "config.pingview.showMs": "Show 'ms' suffix",
+  "config.pingview.showNametagPing": "Show ping on nametags",
+  "config.pingview.textShadow": "Text shadow"
+}

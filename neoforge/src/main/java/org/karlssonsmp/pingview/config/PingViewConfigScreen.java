@@ -14,49 +14,49 @@ public class PingViewConfigScreen {
 
         ConfigBuilder builder = ConfigBuilder.create()
                 .setParentScreen(parent)
-                .setTitle(Component.literal("Ping View Options"))
+                .setTitle(Component.translatable("config.pingview.title"))
                 .setSavingRunnable(PingViewConfig::save)
                 .setDoesConfirmSave(false);
 
         ConfigEntryBuilder eb = builder.entryBuilder();
-        ConfigCategory cat = builder.getOrCreateCategory(Component.literal("Options"));
+        ConfigCategory cat = builder.getOrCreateCategory(Component.translatable("config.pingview.category.options"));
 
-        cat.addEntry(eb.startColorField(Component.literal("Good"), parseColor(cfg.pingColorGood))
+        cat.addEntry(eb.startColorField(Component.translatable("config.pingview.pingColorGood"), parseColor(cfg.pingColorGood))
                 .setDefaultValue(parseColor("#1EFF00"))
                 .setSaveConsumer(v -> cfg.pingColorGood = toHex(v))
                 .build());
 
-        cat.addEntry(eb.startColorField(Component.literal("Ok"), parseColor(cfg.pingColorOk))
+        cat.addEntry(eb.startColorField(Component.translatable("config.pingview.pingColorOk"), parseColor(cfg.pingColorOk))
                 .setDefaultValue(parseColor("#FFF100"))
                 .setSaveConsumer(v -> cfg.pingColorOk = toHex(v))
                 .build());
 
-        cat.addEntry(eb.startColorField(Component.literal("Bad"), parseColor(cfg.pingColorBad))
+        cat.addEntry(eb.startColorField(Component.translatable("config.pingview.pingColorBad"), parseColor(cfg.pingColorBad))
                 .setDefaultValue(parseColor("#FF9500"))
                 .setSaveConsumer(v -> cfg.pingColorBad = toHex(v))
                 .build());
 
-        cat.addEntry(eb.startColorField(Component.literal("Terrible"), parseColor(cfg.pingColorTerrible))
+        cat.addEntry(eb.startColorField(Component.translatable("config.pingview.pingColorTerrible"), parseColor(cfg.pingColorTerrible))
                 .setDefaultValue(parseColor("#FF3B3B"))
                 .setSaveConsumer(v -> cfg.pingColorTerrible = toHex(v))
                 .build());
 
-        cat.addEntry(eb.startColorField(Component.literal("Unknown"), parseColor(cfg.pingColorUnknown))
+        cat.addEntry(eb.startColorField(Component.translatable("config.pingview.pingColorUnknown"), parseColor(cfg.pingColorUnknown))
                 .setDefaultValue(parseColor("#555555"))
                 .setSaveConsumer(v -> cfg.pingColorUnknown = toHex(v))
                 .build());
 
-        cat.addEntry(eb.startBooleanToggle(Component.literal("Show 'ms' suffix"), cfg.showMs)
+        cat.addEntry(eb.startBooleanToggle(Component.translatable("config.pingview.showMs"), cfg.showMs)
                 .setDefaultValue(true)
                 .setSaveConsumer(v -> cfg.showMs = v)
                 .build());
 
-        cat.addEntry(eb.startBooleanToggle(Component.literal("Show ping on nametags"), cfg.showNametagPing)
+        cat.addEntry(eb.startBooleanToggle(Component.translatable("config.pingview.showNametagPing"), cfg.showNametagPing)
                 .setDefaultValue(false)
                 .setSaveConsumer(v -> cfg.showNametagPing = v)
                 .build());
 
-        cat.addEntry(eb.startBooleanToggle(Component.literal("Text shadow"), cfg.textShadow)
+        cat.addEntry(eb.startBooleanToggle(Component.translatable("config.pingview.textShadow"), cfg.textShadow)
                 .setDefaultValue(true)
                 .setSaveConsumer(v -> cfg.textShadow = v)
                 .build());
