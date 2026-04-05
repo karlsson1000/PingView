@@ -10,8 +10,12 @@ See your own and other players ping in the tab list, with color-coded values for
 - Designed to keep the tab list as close to vanilla as possible
 - Lightweight and works out of the box
 
-## Configuration (v1.5+)
-[Cloth config](https://modrinth.com/mod/cloth-config) is included with the jar, [Mod menu](https://modrinth.com/mod/modmenu) required to open config screen.
+## Configuration (v1.5.2+)
+Optional to open the in-game config screen:
+- **Fabric:** [Cloth Config](https://modrinth.com/mod/cloth-config) + [Mod Menu](https://modrinth.com/mod/modmenu)
+- **NeoForge:** [Cloth Config](https://modrinth.com/mod/cloth-config)
+
+Config stored in `./config/pingview.json`.
 - Change ping color values
 - Disable the ms suffix
 - Render ping in player nametags
