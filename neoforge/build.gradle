@@ -31,8 +31,7 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
     implementation project(":common")
-    implementation "me.shedaniel.cloth:cloth-config-neoforge:26.1.154"
-    jarJar "me.shedaniel.cloth:cloth-config-neoforge:26.1.154"
+    compileOnly "me.shedaniel.cloth:cloth-config-neoforge:${cloth_config_version}"
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {

@@ -9,15 +9,22 @@
 	"icon": "assets/ping-view/icon.png",
 	"environment": "client",
 	"entrypoints": {
-		"client": ["org.karlssonsmp.pingview.PingViewClientInit"],
-		"modmenu": ["org.karlssonsmp.pingview.PingViewModMenu"]
+		"client": [
+			"org.karlssonsmp.pingview.PingViewClientInit"
+		],
+		"modmenu": [
+			"org.karlssonsmp.pingview.PingViewModMenu"
+		]
 	},
 	"mixins": [
 		"pingview.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.16.0",
-		"minecraft": ">=26.1",
-		"cloth-config": ">=26.1.154"
+		"minecraft": ">=26.1"
+	},
+	"suggests": {
+		"cloth-config": "*",
+		"modmenu": "*"
 	}
 }
