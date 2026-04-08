@@ -1,0 +1,80 @@
+plugins {
+    id 'net.minecraftforge.gradle' version '[7.0.11,8.0)'
+    id 'maven-publish'
+}
+
+base {
+    archivesName = "${mod_id}-forge"
+}
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(25)
+}
+
+minecraft {
+    runs {
+        client {
+            args '--mixin.config=pingview.mixins.json'
+            mods {
+                "${mod_id}" {
+                    source sourceSets.main
+                    source project(':common').sourceSets.main
+                }
+            }
+        }
+    }
+}
+
+repositories {
+    minecraft.mavenizer(delegate)
+    maven fg.forgeMaven
+    maven fg.minecraftLibsMaven
+    maven { url "https://maven.shedaniel.me/" }
+}
+
+dependencies {
+    implementation minecraft.dependency("net.minecraftforge:forge:${minecraft_version}-${forge_version}")
+    compileOnly project(":common")
+    annotationProcessor 'org.spongepowered:mixin:0.8.7:processor'
+}
+
+var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
+    def replaceProperties = [
+            minecraft_version : project.minecraft_version,
+            forge_version     : project.forge_version,
+            forge_version_range: project.forge_version_range,
+            mod_id            : project.mod_id,
+            mod_name          : project.mod_name,
+            mod_license       : project.mod_license,
+            mod_version       : project.mod_version,
+            mod_authors       : project.mod_authors,
+            mod_description   : project.mod_description
+    ]
+    inputs.properties replaceProperties
+    expand replaceProperties
+    from "src/main/templates"
+    into "build/generated/sources/modMetadata"
+}
+
+sourceSets.main.resources.srcDir generateModMetadata
+
+jar {
+    from project(':common').sourceSets.main.output
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    manifest {
+        attributes 'MixinConfigs': 'pingview.mixins.json'
+    }
+    from("LICENSE") {
+        rename { "${it}_${base.archivesName.get()}" }
+    }
+}
+
+sourceSets.each {
+    def dir = layout.buildDirectory.dir("sourcesSets/$it.name")
+    it.output.resourcesDir = dir
+    it.java.destinationDirectory = dir
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
