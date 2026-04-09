@@ -3,7 +3,7 @@ loaderVersion="[4,)"
 license="MIT"
 
 [[mods]]
-modId="pingview"
+modId="${mod_id}"
 version="${mod_version}"
 displayName="${mod_name}"
 logoFile="icon.png"
@@ -16,13 +16,13 @@ config="pingview.mixins.json"
 [[dependencies.pingview]]
 modId="neoforge"
 type="required"
-versionRange="[21.0.0,)"
+versionRange="${neo_version_range}"
 ordering="NONE"
 side="BOTH"
 
 [[dependencies.pingview]]
 modId="minecraft"
 type="required"
-versionRange="[1.21.6,)"
+versionRange="[26.1,)"
 ordering="NONE"
 side="BOTH"
