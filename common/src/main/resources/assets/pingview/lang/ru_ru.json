@@ -1,0 +1,13 @@
+{
+  "modmenu.descriptionTranslation.pingview": "Отображает ваш пинг и пинг других пользователей в списке игроков",
+  "config.pingview.title": "Настройки Ping View",
+  "config.pingview.category.options": "Настройки",
+  "config.pingview.pingColorGood": "Цвет хорошего пинга",
+  "config.pingview.pingColorOk": "Цвет нормального пинга",
+  "config.pingview.pingColorBad": "Цвет плохого пинга",
+  "config.pingview.pingColorTerrible": "Цвет ужасного пинга",
+  "config.pingview.pingColorUnknown": "Цвет неизвестного пинга",
+  "config.pingview.showMs": "Показывать 'ms'",
+  "config.pingview.showNametagPing": "Отображать пинг на именах",
+  "config.pingview.textShadow": "Отображать тень текста"
+}
