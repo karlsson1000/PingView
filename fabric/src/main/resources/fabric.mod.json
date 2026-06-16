@@ -5,6 +5,7 @@
 	"name": "${mod_name}",
 	"description": "${mod_description}",
 	"authors": ["${mod_authors}"],
+	"contributors": ["itsrec0very"],
 	"license": "${mod_license}",
 	"icon": "assets/ping-view/icon.png",
 	"environment": "client",
