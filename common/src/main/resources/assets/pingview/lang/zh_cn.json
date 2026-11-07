@@ -1,0 +1,12 @@
+{
+  "config.pingview.title": "Ping 显示选项",
+  "config.pingview.category.options": "选项",
+  "config.pingview.pingColorGood": "良好 Ping 颜色",
+  "config.pingview.pingColorOk": "一般 Ping 颜色",
+  "config.pingview.pingColorBad": "较差 Ping 颜色",
+  "config.pingview.pingColorTerrible": "极差 Ping 颜色",
+  "config.pingview.pingColorUnknown": "未知 Ping 颜色",
+  "config.pingview.showMs": "显示“ms”后缀",
+  "config.pingview.showNametagPing": "在名称标签上显示 Ping",
+  "config.pingview.textShadow": "文本阴影"
+}
